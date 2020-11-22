@@ -9,7 +9,7 @@ export const getPhotos = (term, page) => {
     const response = await unsplash.get("/search/photos", {
       params: { query: term, per_page: 20, page: page },
     });
-    console.log(response.data.results);
+    //  console.log(response.data.results);
     dispatch({ type: "GET_PHOTOS", payload: response.data.results });
   };
 };

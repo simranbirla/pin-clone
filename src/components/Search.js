@@ -33,7 +33,7 @@ const Search = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //console.log(state);
   return { page: state.search.page };
 };
 
