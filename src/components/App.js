@@ -8,10 +8,10 @@ const App = () => {
   return (
     <div>
       App
+      <Search />
       <Router history={history}>
         <Switch>
           <Route path="/photos" exact component={Photos} />
-          <Route path="/search" exact component={Search} />
         </Switch>
       </Router>
     </div>
