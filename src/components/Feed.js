@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
-import FeedImage from "./FeedImage";
 import ImageCard from "./ImageCard";
 
 const Feed = () => {
