@@ -19,7 +19,7 @@ export const increasePage = () => {
 };
 
 export const clearPage = () => {
-  return { type: "CLAER_PAGE" };
+  return { type: "CLEAR_PAGE" };
 };
 
 export const clearPhotos = () => {
