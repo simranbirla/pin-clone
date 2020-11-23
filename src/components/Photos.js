@@ -11,9 +11,11 @@ const Photos = (props) => {
       photosRef.current.getBoundingClientRect().bottom <= window.innerHeight
     ) {
       if (props.search.term && props.search.page) {
-        //console.log(props.search.term, props.search.page);
-        props.getPhotos(props.search.term, props.search.page);
+        //console.log(props.search.term, props.search.page)
+
+        props.getPhotos(props.search.term, props.search.page + 1);
         props.increasePage();
+        console.log(props.search.page);
       }
     }
   };
@@ -27,7 +29,6 @@ const Photos = (props) => {
 
   return (
     <div ref={photosRef}>
-      {console.log(props.search)}
       <h2>Photos</h2>
 
       <ImageList images={props.photos} />
