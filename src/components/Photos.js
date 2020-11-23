@@ -5,15 +5,16 @@ import ImageList from "./ImageList";
 
 const Photos = (props) => {
   const photosRef = useRef();
-  console.log(props.search);
+  //console.log(props.search);
   const onScrolling = () => {
     if (
       photosRef.current.getBoundingClientRect().bottom <= window.innerHeight
     ) {
-      if (props.search.term && props.search.page)
-        console.log(props.search.term, props.search.page);
-      props.getPhotos(props.search.term, props.search.page);
-      props.increasePage();
+      if (props.search.term && props.search.page) {
+        //console.log(props.search.term, props.search.page);
+        props.getPhotos(props.search.term, props.search.page);
+        props.increasePage();
+      }
     }
   };
 
@@ -28,16 +29,15 @@ const Photos = (props) => {
     <div ref={photosRef}>
       {console.log(props.search)}
       <h2>Photos</h2>
-      {props.search.photos[0] ? (
-        <ImageList images={props.search.photos[0]} />
-      ) : null}
+
+      <ImageList images={props.photos} />
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   //console.log(state.search);
-  return { search: state.search };
+  return { search: state.search, photos: state.photos };
 };
 
 export default connect(mapStateToProps, { getPhotos, increasePage })(Photos);

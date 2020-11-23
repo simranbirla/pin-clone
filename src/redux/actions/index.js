@@ -17,3 +17,7 @@ export const getPhotos = (term, page) => {
 export const increasePage = () => {
   return { type: "INCREASE_PAGE", payload: 1 };
 };
+
+export const clearPhotos = () => {
+  return { type: "CLEAR_PHOTOS" };
+};
