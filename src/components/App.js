@@ -5,6 +5,7 @@ import Photos from "./Photos";
 import Chat from "./Chat";
 import Header from "./Header";
 import Home from "./Home";
+import Feed from "./Feed";
 const App = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/photos" exact component={Photos} />
           <Route path="/chat" exact component={Chat} />
           <Route path="/" exact component={Home} />
+          <Route path="/feed" exact component={Feed} />
         </Switch>
       </Router>
     </div>
