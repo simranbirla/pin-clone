@@ -18,6 +18,10 @@ export const increasePage = () => {
   return { type: "INCREASE_PAGE", payload: 1 };
 };
 
+export const clearPage = () => {
+  return { type: "CLAER_PAGE" };
+};
+
 export const clearPhotos = () => {
   return { type: "CLEAR_PHOTOS" };
 };

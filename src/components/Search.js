@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import history from "../history";
 import { connect } from "react-redux";
-import { searchTerm, getPhotos, clearPhotos } from "../redux/actions";
+import {
+  searchTerm,
+  getPhotos,
+  clearPhotos,
+  clearPage,
+} from "../redux/actions";
 
 const Search = (props) => {
   const [term, setTerm] = useState();
@@ -13,6 +18,7 @@ const Search = (props) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     props.searchTerm(term);
+    props.clearPage();
     props.clearPhotos();
     props.getPhotos(term, props.page);
     history.push("/photos");
@@ -41,4 +47,5 @@ export default connect(mapStateToProps, {
   searchTerm,
   getPhotos,
   clearPhotos,
+  clearPage,
 })(Search);
