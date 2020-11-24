@@ -1,27 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "../utils/modalStyle";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
-import { storage, db } from "../firebase";
+import { storage } from "../firebase";
+import addDB from "../utils/addDB";
 
 const UploadImage = (props) => {
   const [open, setOpen] = useState(false);
+  const [url, setUrl] = useState();
+  const [file, setFile] = useState();
+  const [type, setType] = useState();
+  const handleChange = (e, type) => {
+    if (type === "file") {
+      if (e.target.files[0]) {
+        setFile(e.target.files[0]);
+      }
+    } else if (type === "url") {
+      setUrl(e.target.value);
+    } else {
+      setType(e.target.value);
+    }
+  };
 
-  const useStyles = makeStyles((theme) => ({
-    modal: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    paper: {
-      position: "absolute",
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
-      border: "2px solid #000",
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-    },
-  }));
+  const handleUpload = () => {
+    if (!url && !file) {
+      alert("Select file to upload");
+    } else if (url && file) {
+      alert("Select only one file to upload");
+    } else if (url) {
+      addDB(type, "Kittu", url);
+    }
+  };
 
   const body = (
     <div className={useStyles().paper}>
@@ -29,9 +38,18 @@ const UploadImage = (props) => {
       <p id="simple-modal-description">
         Select image from your local computer to upload
       </p>
-      <input type="file" />
-      <input type="url" placeholder="Enter url *(optional)" />
-      <Button variant="contained" color="secondary">
+      <input type="file" onChange={(e) => handleChange(e, "file")} />
+      <input
+        type="url"
+        placeholder="Enter url *(optional)"
+        onChange={(e) => handleChange(e, "url")}
+      />
+      <input
+        type="text"
+        placeholder="Enter description"
+        onChange={(e) => handleChange(e, "type")}
+      />
+      <Button variant="contained" color="secondary" onClick={handleUpload}>
         Upload
       </Button>
     </div>
