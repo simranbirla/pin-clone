@@ -18,7 +18,7 @@ const ImageCard = ({ image }) => {
   }, []);
   return (
     <div style={{ gridRowEnd: `span ${spans}` }}>
-      {image.urls.regular ? (
+      {image.urls ? (
         <img ref={imgRef} alt={image.description} src={image.urls.regular} />
       ) : (
         <img ref={imgRef} alt={image.type} src={image.url} />
