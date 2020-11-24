@@ -1,4 +1,5 @@
 import unsplash from "../../api/unsplash";
+import { auth, provider } from "../../firebase";
 
 export const searchTerm = (term) => {
   return { type: "SEARCH", payload: term };
@@ -24,4 +25,30 @@ export const clearPage = () => {
 
 export const clearPhotos = () => {
   return { type: "CLEAR_PHOTOS" };
+};
+
+export const signIn = () => {
+  return (dispatch) => {
+    dispatch({ type: "LOADING_USER" });
+    auth
+      .signInWithPopup(provider)
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: "SIGN_IN", payload: res.user });
+      })
+      .catch((err) => alert(err));
+  };
+};
+
+export const signOut = () => {
+  return (dispatch) => {
+    dispatch({ type: "LOADING_USER" });
+    auth
+      .signOut()
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: "SIGN_OUT" });
+      })
+      .catch((err) => alert(err));
+  };
 };

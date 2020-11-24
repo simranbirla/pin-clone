@@ -6,6 +6,8 @@ import Chat from "./Chat";
 import Header from "./Header";
 import Home from "./Home";
 import Feed from "./Feed";
+import Login from "./Login";
+
 const App = () => {
   return (
     <div>
@@ -16,9 +18,11 @@ const App = () => {
           <Route path="/chat" exact component={Chat} />
           <Route path="/" exact component={Home} />
           <Route path="/feed" exact component={Feed} />
+          <Route path="/login" exact component={Login} />
         </Switch>
       </Router>
     </div>
   );
 };
+
 export default App;
