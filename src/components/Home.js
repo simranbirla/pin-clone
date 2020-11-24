@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import unsplash from "../api/unsplash";
 import ImageList from "./ImageList";
+
 const Home = () => {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
@@ -36,6 +37,7 @@ const Home = () => {
 
   return (
     <div ref={photosRef}>
+      {console.log(list)}
       <ImageList images={list} />
     </div>
   );
