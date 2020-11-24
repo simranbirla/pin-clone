@@ -3,13 +3,14 @@ import useStyles from "../utils/modalStyle";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import { storage } from "../firebase";
-import addDB from "../utils/addDB";
+import { addDB, addStorage } from "../utils/addDB";
 
 const UploadImage = (props) => {
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState();
   const [file, setFile] = useState();
   const [type, setType] = useState();
+  const [progress, setProgress] = useState();
   const handleChange = (e, type) => {
     if (type === "file") {
       if (e.target.files[0]) {
@@ -29,6 +30,8 @@ const UploadImage = (props) => {
       alert("Select only one file to upload");
     } else if (url) {
       addDB(type, "Kittu", url);
+    } else {
+      addStorage(type, file, setProgress, "SIMRAN");
     }
   };
 
@@ -48,6 +51,7 @@ const UploadImage = (props) => {
         type="text"
         placeholder="Enter description"
         onChange={(e) => handleChange(e, "type")}
+        required
       />
       <Button variant="contained" color="secondary" onClick={handleUpload}>
         Upload
