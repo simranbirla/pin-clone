@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import useStyles from "../utils/modalStyle";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
-import { storage } from "../firebase";
 import { addDB, addStorage } from "../utils/addDB";
 
 const UploadImage = (props) => {
@@ -29,10 +28,14 @@ const UploadImage = (props) => {
     } else if (url && file) {
       alert("Select only one file to upload");
     } else if (url) {
-      addDB(type, "Kittu", url);
+      addDB(type, "Kittu", url, setOpen);
     } else {
-      addStorage(type, file, setProgress, "SIMRAN");
+      addStorage(type, file, setProgress, "SIMRAN", setOpen);
     }
+    setFile();
+    setUrl();
+    setType();
+    setProgress();
   };
 
   const body = (

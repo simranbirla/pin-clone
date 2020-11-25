@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
 import ImageCard from "./ImageCard";
+import UploadImage from "./UploadImage";
 
 const Feed = () => {
   const [feed, setFeed] = useState([]);
@@ -20,6 +21,7 @@ const Feed = () => {
   return (
     <div>
       Photos
+      <UploadImage />
       {console.log(feed)}
       <div className="image-list">
         {feed.map((img) => (
