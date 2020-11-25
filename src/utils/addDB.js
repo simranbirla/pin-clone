@@ -1,16 +1,17 @@
 import { storage, db } from "../firebase";
 import firebase from "firebase";
-const addDB = (type, username, url, setOpen) => {
+const addDB = (type, username, url, setOpen, displaypic) => {
   db.collection("feed").add({
     type,
     username,
     url,
     time: firebase.firestore.FieldValue.serverTimestamp(),
+    user_photo: displaypic,
   });
   setOpen(false);
 };
 
-const addStorage = (type, image, setbar, user, setOpen) => {
+const addStorage = (type, image, setbar, user, setOpen, displaypic) => {
   const uploadimg = storage.ref(`/images/${image.name}`).put(image);
 
   uploadimg.on(
@@ -30,7 +31,7 @@ const addStorage = (type, image, setbar, user, setOpen) => {
         .child(image.name)
         .getDownloadURL()
         .then((url) => {
-          addDB(type, user, url, setOpen);
+          addDB(type, user, url, setOpen, displaypic);
         });
     }
   );

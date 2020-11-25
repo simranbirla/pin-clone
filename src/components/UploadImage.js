@@ -3,8 +3,9 @@ import useStyles from "../utils/modalStyle";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import { addDB, addStorage } from "../utils/addDB";
+import { connect } from "react-redux";
 
-const UploadImage = (props) => {
+const UploadImage = ({ user }) => {
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState();
   const [file, setFile] = useState();
@@ -28,9 +29,16 @@ const UploadImage = (props) => {
     } else if (url && file) {
       alert("Select only one file to upload");
     } else if (url) {
-      addDB(type, "Kittu", url, setOpen);
+      addDB(type, user.displayName, url, setOpen, user.photoURL);
     } else {
-      addStorage(type, file, setProgress, "SIMRAN", setOpen);
+      addStorage(
+        type,
+        file,
+        setProgress,
+        user.displayName,
+        setOpen,
+        user.photoURL
+      );
     }
     setFile();
     setUrl();
@@ -78,4 +86,8 @@ const UploadImage = (props) => {
   );
 };
 
-export default UploadImage;
+const mapStateToProps = (state) => {
+  return { user: state.auth.user };
+};
+
+export default connect(mapStateToProps)(UploadImage);

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
 import ImageCard from "./ImageCard";
 import UploadImage from "./UploadImage";
+import { connect } from "react-redux";
 
-const Feed = () => {
+const Feed = ({ auth }) => {
   const [feed, setFeed] = useState([]);
 
   useEffect(() => {
@@ -20,16 +21,24 @@ const Feed = () => {
 
   return (
     <div>
-      Photos
-      <UploadImage />
-      {console.log(feed)}
-      <div className="image-list">
-        {feed.map((img) => (
-          <ImageCard image={img.photos} key={img.key} />
-        ))}
-      </div>
+      {auth ? (
+        <>
+          <UploadImage />
+          <div className="image-list">
+            {feed.map((img) => (
+              <ImageCard image={img.photos} key={img.id} id={img.id} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <h2>Please Login</h2>
+      )}
     </div>
   );
 };
 
-export default Feed;
+const mapStateToProps = (state) => {
+  return { auth: state.auth.sign_in };
+};
+
+export default connect(mapStateToProps)(Feed);
