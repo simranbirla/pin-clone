@@ -7,7 +7,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
-
+import Board from "./Board";
 const App = () => {
   return (
     <div>
@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <Route path="/feed" exact component={Feed} />
           <Route path="/login" exact component={Login} />
+          <Route path="/board" exact component={Board} />
         </Switch>
       </Router>
     </div>

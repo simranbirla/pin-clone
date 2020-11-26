@@ -8,6 +8,7 @@ const addLikes = (id, image) => {
       type: image.type,
       url: image.url,
       time: image.time,
+      user_photo: image.user_photo,
     });
 };
 
