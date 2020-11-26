@@ -33,6 +33,7 @@ const Board = (props) => {
               key={board.id}
               id={board.id}
               likeBtn={false}
+              userId={props.auth.user}
             />
           ))}
         </div>

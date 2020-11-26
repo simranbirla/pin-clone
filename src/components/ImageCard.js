@@ -23,7 +23,13 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
   return (
     <div style={{ gridRowEnd: `span ${spans}` }}>
       {image.urls ? (
-        <img ref={imgRef} alt={image.description} src={image.urls.regular} />
+        <>
+          {console.log(userId)}
+          <img ref={imgRef} alt={image.description} src={image.urls.regular} />
+          <button onClick={() => addBoard(userId.uid, image, "photo")}>
+            Add To Board
+          </button>
+        </>
       ) : (
         <>
           <img ref={imgRef} alt={image.type} src={image.url} />
@@ -42,7 +48,7 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
               <button onClick={() => manageLikes(id, image)} ref={btnRef}>
                 Like
               </button>
-              <button onClick={() => addBoard(userId.uid, image)}>
+              <button onClick={() => addBoard(userId.uid, image, "feed")}>
                 Add To Board
               </button>
             </>
