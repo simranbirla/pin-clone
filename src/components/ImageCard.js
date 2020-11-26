@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import addLikes from "../utils/addLikes";
-const ImageCard = ({ image, id }) => {
+import addBoard from "../utils/addBoard";
+import calSpans from "../utils/calSpans";
+
+const ImageCard = ({ image, id, userId }) => {
   const [spans, setSpans] = useState();
   const btnRef = useRef();
 
@@ -11,16 +14,10 @@ const ImageCard = ({ image, id }) => {
 
   const imgRef = useRef();
 
-  const calSpans = () => {
-    const height = imgRef.current.clientHeight;
-
-    const spans = Math.ceil(height / 10);
-
-    setSpans(spans);
-  };
-
   useEffect(() => {
-    imgRef.current.addEventListener("load", calSpans);
+    imgRef.current.addEventListener("load", () => {
+      calSpans(imgRef, setSpans);
+    });
     return;
   }, []);
 
@@ -35,6 +32,7 @@ const ImageCard = ({ image, id }) => {
             <img
               src={image.user_photo}
               style={{ width: "50px", height: "50px" }}
+              alt="user_profilePhoto"
             />
             <span>{image.username}</span>
           </div>
@@ -42,6 +40,9 @@ const ImageCard = ({ image, id }) => {
           <span>{image.likes}</span>
           <button onClick={() => manageLikes(id, image)} ref={btnRef}>
             Like
+          </button>
+          <button onClick={() => addBoard(userId.uid, image)}>
+            Add To Board
           </button>
         </>
       )}

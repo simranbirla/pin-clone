@@ -21,12 +21,17 @@ const Feed = ({ auth }) => {
 
   return (
     <div>
-      {auth ? (
+      {auth.sign_in ? (
         <>
           <UploadImage />
           <div className="image-list">
             {feed.map((img) => (
-              <ImageCard image={img.photos} key={img.id} id={img.id} />
+              <ImageCard
+                image={img.photos}
+                key={img.id}
+                id={img.id}
+                userId={auth.user}
+              />
             ))}
           </div>
         </>
@@ -38,7 +43,7 @@ const Feed = ({ auth }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { auth: state.auth.sign_in };
+  return { auth: state.auth };
 };
 
 export default connect(mapStateToProps)(Feed);
