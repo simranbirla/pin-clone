@@ -8,7 +8,7 @@ import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
 import Board from "./Board";
-
+import "../Styling/index.css";
 const App = () => {
   return (
     <div>

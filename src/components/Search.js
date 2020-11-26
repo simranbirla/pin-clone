@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchIcon from "@material-ui/icons/Search";
 import history from "../history";
 import { connect } from "react-redux";
 import {
@@ -25,14 +26,16 @@ const Search = (props) => {
   };
 
   return (
-    <div>
+    <div className="search">
       <form onSubmit={onFormSubmit}>
         <input
           type="text"
           placeholder="Search photos..."
           onChange={handleChange}
         />
-        <button>Search</button>
+        <button>
+          <SearchIcon style={{ color: "white" }} />
+        </button>
       </form>
     </div>
   );

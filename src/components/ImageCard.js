@@ -24,7 +24,6 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
     <div style={{ gridRowEnd: `span ${spans}` }}>
       {image.urls ? (
         <>
-          {console.log(userId)}
           <img ref={imgRef} alt={image.description} src={image.urls.regular} />
           <button onClick={() => addBoard(userId.uid, image, "photo")}>
             Add To Board
