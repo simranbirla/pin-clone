@@ -8,6 +8,7 @@ import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
 import Board from "./Board";
+
 const App = () => {
   return (
     <div>

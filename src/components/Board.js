@@ -6,25 +6,34 @@ import ImageCard from "./ImageCard";
 const Board = (props) => {
   const [board, setBoard] = useState([]);
   useEffect(() => {
-    db.collection(`boards/${props.auth.user.uid}/photos`).onSnapshot((snap) => {
-      setBoard(
-        snap.docs.map((doc) => ({
-          id: doc.id,
-          photos: doc.data(),
-        }))
+    if (props.auth.sign_in) {
+      db.collection(`boards/${props.auth.user.uid}/photos`).onSnapshot(
+        (snap) => {
+          setBoard(
+            snap.docs.map((doc) => ({
+              id: doc.id,
+              photos: doc.data(),
+            }))
+          );
+        }
       );
-    });
+    }
+
     return;
   }, []);
 
   return (
     <div>
       Board!! All the photos
-      {console.log(board)}
       {props.auth.sign_in ? (
         <div className="image-list">
           {board.map((board) => (
-            <ImageCard image={board.photos} key={board.id} id={board.id} />
+            <ImageCard
+              image={board.photos}
+              key={board.id}
+              id={board.id}
+              likeBtn={false}
+            />
           ))}
         </div>
       ) : (

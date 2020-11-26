@@ -3,16 +3,15 @@ import addLikes from "../utils/addLikes";
 import addBoard from "../utils/addBoard";
 import calSpans from "../utils/calSpans";
 
-const ImageCard = ({ image, id, userId }) => {
+const ImageCard = ({ image, id, userId, likeBtn }) => {
   const [spans, setSpans] = useState();
+  const imgRef = useRef();
   const btnRef = useRef();
 
   const manageLikes = (id, image) => {
     addLikes(id, image);
     btnRef.current.setAttribute("disabled", "disabled");
   };
-
-  const imgRef = useRef();
 
   useEffect(() => {
     imgRef.current.addEventListener("load", () => {
@@ -38,12 +37,16 @@ const ImageCard = ({ image, id, userId }) => {
           </div>
 
           <span>{image.likes}</span>
-          <button onClick={() => manageLikes(id, image)} ref={btnRef}>
-            Like
-          </button>
-          <button onClick={() => addBoard(userId.uid, image)}>
-            Add To Board
-          </button>
+          {likeBtn !== false ? (
+            <>
+              <button onClick={() => manageLikes(id, image)} ref={btnRef}>
+                Like
+              </button>
+              <button onClick={() => addBoard(userId.uid, image)}>
+                Add To Board
+              </button>
+            </>
+          ) : null}
         </>
       )}
     </div>
