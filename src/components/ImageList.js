@@ -2,7 +2,6 @@ import React from "react";
 import ImageCard from "./ImageCard";
 import "../Styling/ImageList.css";
 import { connect } from "react-redux";
-import { auth } from "../firebase";
 
 const ImageList = (props) => {
   const images = props.images.map((image) => {
