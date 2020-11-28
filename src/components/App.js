@@ -8,6 +8,7 @@ import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
 import Board from "./Board";
+import Picture from "./Picture";
 import "../Styling/index.css";
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/feed" exact component={Feed} />
           <Route path="/login" exact component={Login} />
           <Route path="/board" exact component={Board} />
+          <Route path="/photo/:id" component={Picture} />
         </Switch>
       </Router>
     </div>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import history from "../history";
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";
 import addLikes from "../utils/addLikes";
@@ -26,7 +28,12 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
     <div style={{ gridRowEnd: `span ${spans}` }} className="image-list_grid">
       {image.urls ? (
         <>
-          <img ref={imgRef} alt={image.description} src={image.urls.regular} />
+          <img
+            ref={imgRef}
+            alt={image.description}
+            src={image.urls.regular}
+            onClick={() => history.push("/photo/1")}
+          />
           <button
             onClick={() => {
               addBoard(userId.uid, image, "photo");
@@ -38,7 +45,13 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
         </>
       ) : (
         <>
-          <img ref={imgRef} alt={image.type} src={image.url} />
+          <img
+            ref={imgRef}
+            alt={image.type}
+            src={image.url}
+            onClick={() => history.push(`/photo/${id}`)}
+          />
+
           <div className="imagelist__user">
             <img
               src={image.user_photo}
