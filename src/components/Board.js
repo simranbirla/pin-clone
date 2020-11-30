@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { db } from "../firebase";
 import ImageCard from "./ImageCard";
+import _ from "lodash";
 
 const Board = (props) => {
   const [board, setBoard] = useState([]);
@@ -24,10 +25,9 @@ const Board = (props) => {
 
   return (
     <div>
-      Board!! All the photos
       {props.auth.sign_in ? (
         <div className="image-list">
-          {board.map((board) => (
+          {_.uniqBy(board, "photos.url").map((board) => (
             <ImageCard
               image={board.photos}
               key={board.id}
