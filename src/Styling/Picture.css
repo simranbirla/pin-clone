@@ -49,6 +49,12 @@
   display: flex;
 }
 
+.picture__user h2 {
+  font-size: 2em;
+  margin: 0 30px;
+  text-align: center;
+}
+
 .picture__comments {
   padding: 10px;
   margin: 20px;

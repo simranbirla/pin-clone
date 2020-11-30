@@ -62,8 +62,13 @@ const Picture = (props) => {
           </div>
           <div className="picture__right">
             <div className="picture__user">
-              <img src={pic.user_photo} alt="user" />
-              <p>{pic.username}</p>
+              <div>
+                <img src={pic.user_photo} alt="user" />
+                <p>{pic.username}</p>
+              </div>
+              <div>
+                <h2>{pic.type}</h2>
+              </div>
             </div>
             <div className="picture__comments">
               <h2 style={{ textAlign: "left", margin: "10px" }}>Comments:</h2>
