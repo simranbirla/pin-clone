@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { db } from "../firebase";
 import BoardCard from "./BoardCard";
+import "../Styling/Board.css";
 import _ from "lodash";
 
 const Board = (props) => {

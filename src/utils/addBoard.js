@@ -13,7 +13,7 @@ const addBoard = (userId, image, type) => {
       likes: image.likes,
       url: image.urls.regular,
       username: image.user.name,
-      user_photo: image.user.profile_image.small,
+      user_photo: image.user.profile_image.large,
     });
   }
 };

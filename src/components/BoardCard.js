@@ -14,18 +14,18 @@ const BoardCard = ({ image }) => {
 
   return (
     <div style={{ gridRowEnd: `span ${spans}` }} className="image-list_grid">
-      {console.log("BOARDSSSSS")}
       <img
         ref={imgRef}
         alt={image.type}
         src={image.url}
         onClick={() => window.open(image.url)}
+        className="board-image"
       />
 
       <div className="imagelist__user">
         <img
           src={image.user_photo}
-          style={{ width: "50px", height: "50px" }}
+          style={{ width: "50px", height: "50px", borderRadius: "50%" }}
           alt="user_profilePhoto"
         />
         <p>{image.username}</p>
