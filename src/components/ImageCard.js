@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import history from "../history";
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { db } from "../firebase";
-import ImageCard from "./ImageCard";
+import BoardCard from "./BoardCard";
 import _ from "lodash";
 
 const Board = (props) => {
@@ -28,11 +28,10 @@ const Board = (props) => {
       {props.auth.sign_in ? (
         <div className="image-list">
           {_.uniqBy(board, "photos.url").map((board) => (
-            <ImageCard
+            <BoardCard
               image={board.photos}
               key={board.id}
               id={board.id}
-              likeBtn={false}
               userId={props.auth.user}
             />
           ))}
