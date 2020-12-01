@@ -1,0 +1,46 @@
+.image-list__image {
+  cursor: pointer;
+}
+
+.image-list_grid:hover .image-list__image {
+  opacity: 0.8;
+}
+
+.imagelist__user button {
+  background: transparent;
+}
+
+.imagelist__likes {
+  display: none;
+}
+
+.imagelist__likes button {
+  background-color: transparent;
+  cursor: pointer;
+  color: #ff0251;
+  font-weight: 600;
+  border: none;
+  margin-left: 10px;
+}
+
+.imagelist__likes button:disabled {
+  color: rgb(180, 0, 0);
+}
+
+.imagelist__likes button:focus {
+  outline: none;
+}
+
+.imagelist__likes button:hover {
+  outline: none;
+  transform: scale(1.12);
+  border: 2px outset;
+  color: #f5a4be;
+}
+
+.image-list_grid:hover .imagelist__likes {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  padding: 10px;
+}

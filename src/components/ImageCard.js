@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import history from "../history";
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";
 import addLikes from "../utils/addLikes";
 import addBoard from "../utils/addBoard";
 import calSpans from "../utils/calSpans";
+import "../Styling/ImageCard.css";
 
 const ImageCard = ({ image, id, userId, likeBtn }) => {
   const [spans, setSpans] = useState();
@@ -31,11 +33,19 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
             ref={imgRef}
             alt={image.description}
             src={image.urls.regular}
-            onClick={() => history.push("/photo/1")}
+            onClick={() => window.open(image.urls.regular)}
           />
           <button
             onClick={() => {
               addBoard(userId.uid, image, "photo");
+              document
+                .getElementsByClassName("home__msg")[0]
+                .classList.add("show");
+              setTimeout(() => {
+                document
+                  .getElementsByClassName("home__msg")[0]
+                  .classList.remove("show");
+              }, 2000);
             }}
             className="image-list__icon"
           >
@@ -49,28 +59,25 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
             alt={image.type}
             src={image.url}
             onClick={() => history.push(`/photo/${id}`)}
+            className="image-list__image"
           />
 
           <div className="imagelist__user">
             <img
               src={image.user_photo}
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "50px", height: "50px", borderRadius: "50%" }}
               alt="user_profilePhoto"
             />
             <p>{image.username}</p>
           </div>
           <div className="imagelist__likes">
-            <span>{image.likes}</span>
-            {likeBtn !== false ? (
-              <>
-                <button onClick={() => manageLikes(id, image)} ref={btnRef}>
-                  <FavoriteOutlinedIcon />
-                </button>
-                <button onClick={() => addBoard(userId.uid, image, "feed")}>
-                  <AddToPhotosOutlinedIcon />
-                </button>
-              </>
-            ) : null}
+            <button onClick={() => manageLikes(id, image)} ref={btnRef}>
+              <FavoriteOutlinedIcon />
+              {image.likes}
+            </button>
+            <button onClick={() => addBoard(userId.uid, image, "feed")}>
+              <AddToPhotosOutlinedIcon />
+            </button>
           </div>
         </>
       )}

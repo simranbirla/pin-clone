@@ -7,6 +7,7 @@ import _ from "lodash";
 
 const Board = (props) => {
   const [board, setBoard] = useState([]);
+
   useEffect(() => {
     if (props.auth.sign_in) {
       db.collection(`boards/${props.auth.user.uid}/photos`).onSnapshot(
@@ -19,8 +20,8 @@ const Board = (props) => {
           );
         }
       );
+      setBoard(_.uniqBy(board, "photos.url"));
     }
-
     return;
   }, []);
 
