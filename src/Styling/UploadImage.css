@@ -1,0 +1,54 @@
+.upload > button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 50px;
+  font-weight: 800;
+  border: none;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  color: white;
+  background-color: rgba(214, 11, 94);
+  box-shadow: 0 5px 5px rgba(214, 11, 94, 0.5);
+}
+
+.upload input {
+  width: 100%;
+}
+
+.upload_img input {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  border-color: rgba(214, 11, 94, 0.5);
+}
+
+.upload_img input[type="file"] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.outside {
+  height: 10px;
+  width: 80%;
+  background-color: rosybrown;
+  border-radius: 10px;
+  border: none;
+}
+
+.inside {
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(214, 11, 94);
+}

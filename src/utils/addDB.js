@@ -33,6 +33,7 @@ const addStorage = (type, image, setbar, user, setOpen, displaypic) => {
         .then((url) => {
           addDB(type, user, url, setOpen, displaypic);
         });
+      setbar(0);
     }
   );
 };
