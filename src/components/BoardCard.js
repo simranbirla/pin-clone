@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import calSpans from "../utils/calSpans";
+import "../Styling/ImageList.css";
 
 const BoardCard = ({ image }) => {
   const [spans, setSpans] = useState();
@@ -30,7 +32,11 @@ const BoardCard = ({ image }) => {
         />
         <p>{image.username}</p>
       </div>
-      <div className="imagelist__likes">
+      <div
+        className="likes"
+        style={{ position: "absolute", bottom: "10px", opacity: "0" }}
+      >
+        <FavoriteIcon color="secondary" />
         <span>{image.likes}</span>
       </div>
     </div>

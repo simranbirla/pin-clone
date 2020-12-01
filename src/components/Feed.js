@@ -24,6 +24,7 @@ const Feed = ({ auth }) => {
       {auth.sign_in ? (
         <>
           <UploadImage />
+          <div className="home__msg">Added to Board !!</div>
           <div className="image-list">
             {feed.map((img) => (
               <ImageCard

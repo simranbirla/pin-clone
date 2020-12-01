@@ -1,7 +1,10 @@
 .header {
   display: flex;
   column-gap: 10px;
-  margin: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: rgb(245, 245, 245);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .header a {
@@ -72,4 +75,28 @@ input:focus {
 
 span {
   margin: 2px;
+}
+
+.login {
+  background-color: #f50057;
+  border-radius: 30px;
+  padding: 5px 30px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.login:hover {
+  background-color: #f50057;
+  color: white;
+}
+
+.logout {
+  color: #f50057;
+}
+
+.logout:hover {
+  background-color: #f50057;
+  color: white;
 }

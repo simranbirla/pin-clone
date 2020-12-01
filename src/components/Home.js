@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div ref={photosRef} className="home">
-      <div className="home__msg">Added to Board Yassss!!!!</div>
+      <div className="home__msg">Added to Board !!</div>
       <ImageList images={list} />
     </div>
   );

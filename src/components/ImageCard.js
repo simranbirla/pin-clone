@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import history from "../history";
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";
 import addLikes from "../utils/addLikes";
 import addBoard from "../utils/addBoard";
@@ -34,6 +33,7 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
             alt={image.description}
             src={image.urls.regular}
             onClick={() => window.open(image.urls.regular)}
+            style={{ cursor: "pointer" }}
           />
           <button
             onClick={() => {
@@ -75,7 +75,19 @@ const ImageCard = ({ image, id, userId, likeBtn }) => {
               <FavoriteOutlinedIcon />
               {image.likes}
             </button>
-            <button onClick={() => addBoard(userId.uid, image, "feed")}>
+            <button
+              onClick={() => {
+                addBoard(userId.uid, image, "feed");
+                document
+                  .getElementsByClassName("home__msg")[0]
+                  .classList.add("show");
+                setTimeout(() => {
+                  document
+                    .getElementsByClassName("home__msg")[0]
+                    .classList.remove("show");
+                }, 2000);
+              }}
+            >
               <AddToPhotosOutlinedIcon />
             </button>
           </div>

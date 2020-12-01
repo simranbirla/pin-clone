@@ -19,10 +19,14 @@ const Header = ({ auth, signIn }) => {
             <span>{auth.user.displayName}</span>
           </div>
 
-          <Link to="/login">LogOut</Link>
+          <Link to="/login" className="logout">
+            LogOut
+          </Link>
         </div>
       ) : (
-        <button onClick={signIn}>LogIn</button>
+        <button onClick={signIn} className="login">
+          LogIn
+        </button>
       )}
     </div>
   );

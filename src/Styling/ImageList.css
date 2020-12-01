@@ -102,7 +102,33 @@
   display: flex;
 }
 
+.image-list_grid:hover .likes {
+  opacity: 1;
+}
+
 .image-list_grid:hover .board-image {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.download-button {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  color: white;
+  font-weight: 800;
+  font-size: 2em;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0;
+}
+
+.image-list img:hover ~ .download-button {
+  opacity: 1;
+  color: #f50057;
+  background-color: rgba(0, 0, 00, 0.6);
+}
+
+.download-button:hover {
+  opacity: 1;
 }

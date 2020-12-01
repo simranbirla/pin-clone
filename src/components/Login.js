@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../redux/actions";
+import login from "../Styling/login.svg";
+import "../Styling/Login.css";
 
 const Login = (props) => {
   return (
-    <div>
-      Login with Google
+    <div className="login__page">
+      <h2>Login with Google</h2>
+      <img src={login} alt="login" />
       {props.auth.sign_in ? (
         <button onClick={props.signOut}>SignOut</button>
       ) : (
