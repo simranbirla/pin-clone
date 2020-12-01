@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { db } from "../firebase";
 import BoardCard from "./BoardCard";
 import "../Styling/Board.css";
+import Login from "./Login";
 import _ from "lodash";
 
 const Board = (props) => {
@@ -39,7 +40,7 @@ const Board = (props) => {
           ))}
         </div>
       ) : (
-        <h2> Please Login </h2>
+        <Login />
       )}
     </div>
   );

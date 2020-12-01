@@ -3,6 +3,7 @@ import { db } from "../firebase";
 import ImageCard from "./ImageCard";
 import UploadImage from "./UploadImage";
 import { connect } from "react-redux";
+import Login from "./Login";
 
 const Feed = ({ auth }) => {
   const [feed, setFeed] = useState([]);
@@ -37,7 +38,7 @@ const Feed = ({ auth }) => {
           </div>
         </>
       ) : (
-        <h2>Please Login</h2>
+        <Login />
       )}
     </div>
   );
