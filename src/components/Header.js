@@ -8,6 +8,8 @@ import "../Styling/Header.css";
 const Header = ({ auth, signIn }) => {
   return (
     <div className="header">
+      <input type="checkbox" id="check" />
+      <label for="check" className="label"></label>
       <Link to="/">Home</Link>
       <Link to="/board">Board</Link>
       <Link to="/feed">Feed</Link>

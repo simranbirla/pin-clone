@@ -58,3 +58,10 @@ button:focus {
   border-radius: 10px;
   background-color: rgba(214, 11, 94);
 }
+
+@media (max-width: 420px) {
+  .upload_img {
+    width: 90%;
+    padding: 10px;
+  }
+}

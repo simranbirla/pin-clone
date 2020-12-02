@@ -29,3 +29,9 @@
   border-radius: 30px;
   color: white;
 }
+
+@media (max-width: 420px) {
+  .login__page button {
+    width: 80%;
+  }
+}

@@ -7,6 +7,10 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
+.header input[type="checkbox"] {
+  display: none;
+}
+
 .header a {
   text-decoration: none;
   margin: 5px;
@@ -33,7 +37,7 @@
 }
 
 .search form input {
-  width: 90%;
+  width: 85%;
   font-size: 18px;
   padding: 10px;
   border-top-left-radius: 20px;
@@ -43,7 +47,7 @@
 }
 
 .search form button {
-  width: 10%;
+  width: 15%;
   font-size: 18px;
   padding: 5px;
   border-top-right-radius: 20px;
@@ -80,7 +84,7 @@ span {
 .login {
   background-color: #f50057;
   border-radius: 30px;
-  padding: 5px 30px;
+  padding: 10px 30px;
   font-size: 15px;
   color: white;
   cursor: pointer;
@@ -92,11 +96,154 @@ span {
   color: white;
 }
 
-.logout {
+.header__sign .logout {
   color: #f50057;
+  width: 100%;
 }
 
-.logout:hover {
+.header__sign .logout:hover {
   background-color: #f50057;
   color: white;
+}
+
+@media (max-width: 920px) {
+  .search form button {
+    width: 20%;
+  }
+  .search form input {
+    width: 80%;
+  }
+}
+
+@media (max-width: 750px) {
+  .header .search {
+    margin-left: 32px;
+  }
+
+  .header a {
+    display: none;
+  }
+
+  .search form button {
+    display: none;
+  }
+  .search form {
+    margin: auto;
+  }
+  .search form input {
+    width: 100%;
+    outline: #f50057;
+    border: 2px solid #f50057;
+    border-radius: 20px;
+    margin: 0 10px;
+  }
+
+  .header input[type="checkbox"]::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .header label {
+    background-color: black;
+    width: 40px;
+    height: 5px;
+    position: absolute;
+    top: 20px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px;
+    padding-right: 5px;
+  }
+
+  .header label::before,
+  .header label::after {
+    content: "";
+    background-color: black;
+    width: 40px;
+    height: 5px;
+    position: absolute;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+  }
+  .header label::before {
+    transform: translateY(-10px);
+  }
+  .header label::after {
+    transform: translateY(10px);
+  }
+  .header input[type="checkbox"]:checked ~ label {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .header input[type="checkbox"]:checked ~ label::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+
+  .header input[type="checkbox"]:checked ~ label::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+
+  .header__user {
+    position: absolute;
+    top: 20px;
+    left: 95%;
+    transform: translateX(-95%);
+  }
+
+  .header input[type="checkbox"]:checked ~ a {
+    display: block;
+    opacity: 1;
+  }
+
+  .header input[type="checkbox"]:checked ~ * a {
+    display: block;
+    opacity: 1;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header .search {
+    order: -3;
+  }
+
+  .login {
+    position: absolute;
+    left: 95%;
+    top: 28px;
+    transform: translateX(-95%);
+  }
+}
+
+@media (max-width: 420px) {
+  .header label {
+    width: 22px;
+  }
+
+  .header label::before,
+  .header label::after {
+    width: 22px;
+  }
+
+  .login {
+    padding: 5px 10px;
+    font-size: 15px;
+    top: 32px;
+    margin-left: 5px;
+  }
+
+  .header__user img {
+    width: 30px;
+    height: 30px;
+  }
+  .header__user {
+    font-size: 10px;
+    margin: 0 5px;
+  }
 }
