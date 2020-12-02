@@ -28,7 +28,7 @@ const Board = (props) => {
 
   const list = () => {
     var arr = _.uniqBy(board, "photos.url");
-    console.log(arr);
+    //console.log(arr);
     const disp = arr.map((board) => (
       <BoardCard
         image={board.photos}

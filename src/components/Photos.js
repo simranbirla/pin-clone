@@ -15,7 +15,7 @@ const Photos = (props) => {
 
         props.getPhotos(props.search.term, props.search.page + 1);
         props.increasePage();
-        console.log(props.search.page);
+        //console.log(props.search.page);
       }
     }
   };
