@@ -1,5 +1,6 @@
 import unsplash from "../../api/unsplash";
 import { auth, provider } from "../../firebase";
+import history from "../../history";
 
 export const searchTerm = (term) => {
   return { type: "SEARCH", payload: term };
@@ -33,8 +34,8 @@ export const signIn = () => {
     auth
       .signInWithPopup(provider)
       .then((res) => {
-        console.log(res);
         dispatch({ type: "SIGN_IN", payload: res.user });
+        history.push("/");
       })
       .catch((err) => alert(err));
   };
@@ -46,8 +47,9 @@ export const signOut = () => {
     auth
       .signOut()
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         dispatch({ type: "SIGN_OUT" });
+        history.push("/");
       })
       .catch((err) => alert(err));
   };

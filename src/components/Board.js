@@ -26,19 +26,24 @@ const Board = (props) => {
     return;
   }, []);
 
+  const list = () => {
+    var arr = _.uniqBy(board, "photos.url");
+    console.log(arr);
+    const disp = arr.map((board) => (
+      <BoardCard
+        image={board.photos}
+        key={board.id}
+        id={board.id}
+        userId={props.auth.user}
+      />
+    ));
+    return disp;
+  };
+
   return (
     <div>
       {props.auth.sign_in ? (
-        <div className="image-list">
-          {_.uniqBy(board, "photos.url").map((board) => (
-            <BoardCard
-              image={board.photos}
-              key={board.id}
-              id={board.id}
-              userId={props.auth.user}
-            />
-          ))}
-        </div>
+        <div className="image-list">{list()}</div>
       ) : (
         <Login />
       )}
