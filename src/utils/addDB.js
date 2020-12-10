@@ -7,6 +7,7 @@ const addDB = (type, username, url, setOpen, displaypic) => {
     url,
     time: firebase.firestore.FieldValue.serverTimestamp(),
     user_photo: displaypic,
+    likes: 0,
   });
   setOpen(false);
 };
