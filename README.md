@@ -4,6 +4,9 @@
   <a href="https://twitter.com/SimranBirla1" target="_blank">
     <img alt="Twitter: SimranBirla1" src="https://img.shields.io/twitter/follow/SimranBirla1.svg?style=social" />
   </a>
+  <a href="https://www.linkedin.com/in/simran-birla-31b3901a4/" target="_blank">
+    <img alt="LinkedIn: Simran Birla" src="https://img.shields.io/LinkedIn/follow/SimranBirla.svg?style=social" />
+  </a>
 </p>
 
 > This project is a clone of social media site pinterest. You can search for photos.You can upload photos. You can also like and comment on a photo.There is also a fuctionality to create your own board by adding photos.
@@ -50,10 +53,10 @@ npm run test
 
 👤 **Simran Birla**
 
-- Website: simranbirla.netlify.com
+- Website: https://simranbirla.netlify.app/
 - Twitter: [@SimranBirla1](https://twitter.com/SimranBirla1)
 - Github: [@simranbirla](https://github.com/simranbirla)
-- LinkedIn: [@https:\/\/www.linkedin.com\/in\/simran-birla-31b3901a4\/](https://linkedin.com/in/https://www.linkedin.com/in/simran-birla-31b3901a4/)
+- LinkedIn: [Simran Birla](https://www.linkedin.com/in/simran-birla-31b3901a4/)
 
 ## Show your support
 
